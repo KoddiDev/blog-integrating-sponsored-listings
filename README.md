@@ -1,2 +1,2 @@
-# blog-integrate-winning-ads
-Code and demo to accompany the blog article, Integrate Winning Ads into Your Product.
+# Integrating Sponsored Listings
+Code and demo to accompany the blog article, Integrating Sponsored Listings in Your Search Results.
