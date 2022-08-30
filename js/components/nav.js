@@ -12,6 +12,7 @@ class AppNav extends HTMLElement {
             <nav>
                 <ul>
                     <li><a href="/" class="secondary">Introduction</a></li>
+                    <li><hr></li>
                     <li><a href="/consolidated" class="secondary">Consolidated Calls</a></li>
                     <li>
                         Separated Calls
