@@ -1,0 +1,28 @@
+{
+  "name": "blog-integrating-sponsored-listings",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Code and demo to accompany the blog article, Integrating Sponsored Listings in Your Search Results.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KoddiDev/blog-integrating-sponsored-listings.git"
+  },
+  "keywords": [
+    "ads",
+    "winning",
+    "auction",
+    "adtech",
+    "pwa"
+  ],
+  "author": "Koddi",
+  "license": "ISC",
+  "homepage": "https://github.com/KoddiDev/blog-integrating-sponsored-listings#readme",
+  "dependencies": {
+    "vite": "^3.0.9"
+  }
+}
