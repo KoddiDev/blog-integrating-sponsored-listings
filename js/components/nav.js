@@ -1,3 +1,6 @@
+import PubSub from 'pubsub-js';
+import { ROUTE } from '../message-topics.js';
+
 import route from '../router.js';
 
 
@@ -28,14 +31,10 @@ class AppNav extends HTMLElement {
             </nav>
         `;
 
-        this.listenForRoute();
+        PubSub.subscribe(ROUTE, () => this.handleRoute());
         this.listenForSelection();
     }
 
-
-    listenForRoute() {
-        document.addEventListener('route', this.handleRoute);
-    }
 
     listenForSelection() {
         this.removeEventListener('click', this.handleSelection);

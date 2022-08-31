@@ -23,6 +23,7 @@
   "license": "ISC",
   "homepage": "https://github.com/KoddiDev/blog-integrating-sponsored-listings#readme",
   "dependencies": {
+    "pubsub-js": "^1.9.4",
     "vite": "^3.0.9"
   }
 }
