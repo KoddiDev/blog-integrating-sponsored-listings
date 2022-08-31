@@ -1,7 +1,8 @@
 export default () => `
-    <h2>Demo Introduction</h2>
+    <h2>Demonstrations</h2>
     <p>
-        This demonstration attempts to showcase various approaches to 
+        These demonstrations attempt to showcase various approaches to 
         integrating sponsored listings into search results.
+        Use the navigation menu in the sidebar to view each demonstration.
     </p>
 `;
