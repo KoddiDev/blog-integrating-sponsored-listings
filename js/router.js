@@ -14,7 +14,7 @@ const routes = {
 function route() {
     let view = routes[location.pathname];
     if (view) {
-        document.title = view.title;
+        document.title = `Demo: ${view.title}`;
         app.innerHTML = view.render();
         PubSub.publish(ROUTE);
     } else {
