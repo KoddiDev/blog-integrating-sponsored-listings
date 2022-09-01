@@ -22,18 +22,26 @@ class AppNav extends HTMLElement {
                 menuItems: []
             }
         ];
+        
         this.menuItems = menuItems;
-
         this.render();
     }
 
+    connectedCallback() {
+        if (!this.isConnected) return;
+        this.routeSubToken = PubSub.subscribe(ROUTE, () => this.handleRoute());
+    }
+
+    disconnectedCallback() {
+        PubSub.unsubscribe(this.routeSubToken);
+    }
+
+    
     render() {
         const nav = document.createElement('nav');
         const menuItemList = this.buildMenuItemList(this.menuItems);
         nav.appendChild(menuItemList);
         this.appendChild(nav);
-
-        PubSub.subscribe(ROUTE, () => this.handleRoute());
     }
 
 
