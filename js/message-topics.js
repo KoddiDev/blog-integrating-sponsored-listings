@@ -1,2 +1,2 @@
 export const ROUTE = 'ROUTE';
-export const SEARCH = 'SEARCH';
+export const SEARCH_REQUESTED = 'SEARCH_REQUESTED';

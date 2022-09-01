@@ -1,5 +1,5 @@
 import PubSub from "pubsub-js";
-import { SEARCH } from '../message-topics.js';
+import { SEARCH_REQUESTED } from '../message-topics.js';
 
 
 class SearchForm extends HTMLElement {
@@ -31,7 +31,7 @@ class SearchForm extends HTMLElement {
 
         this.addEventListener('submit', event => {
             event.preventDefault();
-            PubSub.publish(SEARCH);
+            PubSub.publish(SEARCH_REQUESTED);
         });
     }
 }
