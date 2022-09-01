@@ -1,6 +1,8 @@
 import PubSub from "pubsub-js";
 import { SEARCH_REQUESTED, SEARCH_RESPONDED } from '../message-topics.js';
 
+import { clearBusy, renderBusy } from "../lib/busy.js";
+
 
 export default class BaseSearchResults extends HTMLElement {
     constructor() {
@@ -10,10 +12,10 @@ export default class BaseSearchResults extends HTMLElement {
     connectedCallback() {
         if (!this.isConnected) return;
 
-        this.searchRequestedToken = PubSub.subscribe(SEARCH_REQUESTED, () => this.renderLoading());
+        this.searchRequestedToken = PubSub.subscribe(SEARCH_REQUESTED, () => renderBusy(this));
         
         this.searchRespondedToken = PubSub.subscribe(SEARCH_RESPONDED, () => {
-            this.renderLoading(false);
+            clearBusy(this);
             this.renderResults();
         });
     }
@@ -42,16 +44,7 @@ export default class BaseSearchResults extends HTMLElement {
         return item;
     }
 
-
-    renderLoading(isLoading = true) {
-        this.replaceChildren();
-
-        isLoading 
-            ? this.setAttribute('aria-busy', 'true') 
-            : this.removeAttribute('aria-busy');
-    }
-
     renderResults() {
-        
+        throw new Error('The renderResults() method must be overridden.');
     }
 }
