@@ -37,14 +37,8 @@ class AppNav extends HTMLElement {
         `;
 
         PubSub.subscribe(ROUTE, () => this.handleRoute());
-        this.listenForSelection();
     }
 
-
-    listenForSelection() {
-        this.removeEventListener('click', this.handleSelection);
-        this.addEventListener('click', this.handleSelection);
-    }
 
     handleRoute() {
         const navLinks = this.querySelectorAll('a');
@@ -58,14 +52,6 @@ class AppNav extends HTMLElement {
 
         const matchingLink = this.querySelector(`a[href='${location.pathname}']`);
         matchingLink?.setAttribute('aria-current', 'page');
-    }
-
-    handleSelection(event) {
-        if (event.target.matches('li a')) {
-            event.preventDefault();
-            history.pushState('', '', event.target.href);
-            route();
-        }
     }
 }
 
