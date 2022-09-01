@@ -1,4 +1,6 @@
 import './components/nav.js';
+import './components/search-form.js';
+
 import route from './router.js';
 
 

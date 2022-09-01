@@ -1,11 +1,27 @@
-:root {
-    --spacing: 0.35rem;
-}
-
 body {
     --primary: hsl(196, 100%, 44%);
     --primary-hover: hsl(196, 100%, 34%);
     --primary-focus: rgba(0, 165, 223, 0.125)
+}
+
+@media (min-width: 992px) {
+    body > footer, body > header, body > main {
+        --block-spacing-vertical: calc(var(--spacing) * 2.0);
+    }
+}
+@media (min-width: 768px) {
+    body > footer, body > header, body > main {
+        --block-spacing-vertical: calc(var(--spacing) * 1.5);
+    }
+}
+@media (min-width: 576px) {
+    body > footer, body > header, body > main {
+        --block-spacing-vertical: calc(var(--spacing) * 1.0);
+    }
+}
+
+body > header > hgroup {
+    margin-bottom: 0;
 }
 
 app-nav nav ul ul:first-of-type {
@@ -16,7 +32,7 @@ app-nav a[aria-current] {
 }
 
 @media (min-width: 992px) {
-    main .grid {
+    main > .grid {
         grid-column-gap: 2rem;
         grid-template-columns: 25% auto;
     }
