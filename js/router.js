@@ -7,15 +7,15 @@ import { renderBusy } from './lib/busy.js';
 import renderHTMLString from './lib/renderHTMLString';
 import renderNode from './lib/renderNode.js';
 
-import home from './views/home.js';
-import consolidated from './views/consolidated.js';
-import consolidatedFast from './views/consolidated-fast.js';
+import homeView from './views/home.js';
+import consolidatedView from './views/consolidated.js';
+import consolidatedFastView from './views/consolidated-fast.js';
 
 
 const routes = {
-    '/': { title: 'Home', render: home },
-    '/consolidated': { title: 'Consolidated Calls', render: consolidated },
-    '/consolidated/fast-results': { title: 'Consolidated Calls - Fast Results', render: consolidatedFast }
+    '/': homeView,
+    '/consolidated': consolidatedView,
+    '/consolidated/fast-results': consolidatedFastView
 };
 
 function renderView(view) {
