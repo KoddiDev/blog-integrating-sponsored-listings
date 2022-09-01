@@ -1,6 +1,7 @@
 import PubSub from 'pubsub-js';
 import { ROUTE } from './message-topics.js';
 
+import isFunction from './lib/isFunction.js';
 import isString from './lib/isString.js';
 import isNode from './lib/isNode.js';
 import { renderBusy } from './lib/busy.js';
@@ -12,6 +13,8 @@ import consolidatedView from './views/consolidated.js';
 import consolidatedFastView from './views/consolidated-fast.js';
 
 
+let currentView;
+
 const routes = {
     '/': homeView,
     '/consolidated': consolidatedView,
@@ -19,13 +22,40 @@ const routes = {
 };
 
 function renderView(view) {
+    if (view === undefined) return;
+
+    // Is the view a constructor?
+    if (isFunction(view)) {
+        view = view();
+    }
+
+    runTeardownForView(currentView);
+    currentView = view;
+
     const app = document.getElementById('app');
     renderBusy(app);
 
-    const viewOutput = view?.render();
-    
+    runSetupForView(currentView);
+    renderViewContents(app, currentView);
+}
+
+function runSetupForView(view) {
+    if (isFunction(view?.onSetup)) {
+        view?.onSetup();
+    }
+}
+
+function runTeardownForView(view) {
+    if (isFunction(view?.onTeardown)) {
+        view?.onTeardown();
+    }
+}
+
+function renderViewContents(target, view) {
+    const viewOutput = view.render();
+
     if (isString(viewOutput)) {
-        renderHTMLString(app, viewOutput);
+        renderHTMLString(target, viewOutput);
     } else if (isNode(viewOutput)) {
         renderNode(target, viewOutput);
     }
