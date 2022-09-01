@@ -7,38 +7,71 @@ import route from '../router.js';
 class AppNav extends HTMLElement {
     constructor() {
         super();
+
+        const menuItems = [
+            { title: 'Introduction', href: '/' },
+            { isDivider: true },
+            { 
+                title: 'Consolidated Calls', href: '/consolidated',
+                menuItems: [
+                    { title: 'Fast Results', href: '/consolidated/fast-results' }
+                ]
+            },
+            { 
+                title: 'Separated Calls', href: '/separated',
+                menuItems: []
+            }
+        ];
+        this.menuItems = menuItems;
+
         this.render();
     }
 
     render() {
-        this.innerHTML = `
-            <nav>
-                <ul>
-                    <li><a href="/" class="secondary">Introduction</a></li>
-                    <li><hr></li>
-                    <li>
-                        <a href="/consolidated" class="secondary">Consolidated Calls</a>
-                        <ul>
-                            <li><a href="/consolidated/fast-results" class="secondary">Fast Results</a>
-                        </ul>
-                    </li>
-                    <li>
-                        Separated Calls
-                        <ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        `;
+        const nav = document.createElement('nav');
+        const menuItemList = this.buildMenuItemList(this.menuItems);
+        nav.appendChild(menuItemList);
+        this.appendChild(nav);
 
         PubSub.subscribe(ROUTE, () => this.handleRoute());
     }
 
+
+    buildMenuItemList(menuItems) {
+        const itemList = document.createElement('ul');
+
+        for (const menuItem of menuItems) {
+            const item = menuItem.isDivider ? this.buildDividerItem() : this.buildLinkItem(menuItem);
+            itemList.appendChild(item);
+
+            if (menuItem?.menuItems?.length > 0) {
+                const subItemList = this.buildMenuItemList(menuItem.menuItems);
+                item.appendChild(subItemList);
+            }
+        }
+
+        return itemList;
+    }
+
+    buildDividerItem() {
+        const item = document.createElement('li');
+        const rule = document.createElement('hr');
+        item.appendChild(rule);
+
+        return item;
+    }
+
+    buildLinkItem(menuItem) {
+        const item = document.createElement('li');
+        
+        const link = document.createElement('a');
+        link.href = menuItem.href;
+        link.className = 'secondary';
+        link.text = menuItem.title;
+        item.appendChild(link);
+
+        return item;
+    }
 
     handleRoute() {
         const navLinks = this.querySelectorAll('a');
