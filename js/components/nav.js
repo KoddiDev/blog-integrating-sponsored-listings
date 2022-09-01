@@ -16,16 +16,21 @@ class AppNav extends HTMLElement {
                 <ul>
                     <li><a href="/" class="secondary">Introduction</a></li>
                     <li><hr></li>
-                    <li><a href="/consolidated" class="secondary">Consolidated Calls</a></li>
+                    <li>
+                        <a href="/consolidated" class="secondary">Consolidated Calls</a>
+                        <ul>
+                            <li><a href="/consolidated/fast-results" class="secondary">Fast Results</a>
+                        </ul>
+                    </li>
                     <li>
                         Separated Calls
-                        <ol>
+                        <ul>
                             <li></li>
                             <li></li>
                             <li></li>
                             <li></li>
                             <li></li>
-                        </ol>
+                        </ul>
                     </li>
                 </ul>
             </nav>

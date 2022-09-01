@@ -8,6 +8,9 @@ body {
     --primary-focus: rgba(0, 165, 223, 0.125)
 }
 
+app-nav nav ul ul:first-of-type {
+    margin-left: var(--nav-element-spacing-horizontal);
+}
 app-nav a[aria-current] {
     color: var(--primary);
 }
