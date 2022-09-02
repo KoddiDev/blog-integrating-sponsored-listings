@@ -1,6 +1,6 @@
 import './components/nav.js';
 import './components/search-form.js';
-import './components/search-results-consolidated-fast.js';
+import './components/search-results-consolidated.js';
 
 import route from './router.js';
 

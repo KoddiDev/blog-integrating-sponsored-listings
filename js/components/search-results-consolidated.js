@@ -1,7 +1,7 @@
 import BaseSearchResults from "./search-results";
 
 
-class ConsolidatedFastSearchResults extends BaseSearchResults {
+class ConsolidatedSearchResults extends BaseSearchResults {
     constructor() {
         super();
     }
@@ -33,4 +33,4 @@ class ConsolidatedFastSearchResults extends BaseSearchResults {
 }
 
 
-customElements.define("consolidated-fast-search-results", ConsolidatedFastSearchResults);
+customElements.define("consolidated-search-results", ConsolidatedSearchResults);

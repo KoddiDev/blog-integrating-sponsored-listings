@@ -38,7 +38,7 @@ function View() {
                 <hr>
                 
                 <search-form></search-form>
-                <consolidated-fast-search-results></consolidated-fast-search-results>
+                <consolidated-search-results></consolidated-search-results>
             `;
         },
 
