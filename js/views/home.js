@@ -1,6 +1,6 @@
 function render() {
     return `
-        <h2>Demonstrations</h2>
+        <h2>Introduction</h2>
         <p>
             These demonstrations attempt to showcase various approaches to 
             integrating sponsored listings into search results.
