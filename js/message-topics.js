@@ -1,3 +1,3 @@
-export const ROUTE = 'ROUTE';
-export const SEARCH_REQUESTED = 'SEARCH_REQUESTED';
-export const SEARCH_RESPONDED = 'SEARCH_RESPONDED';
+export const ROUTE = 'route';
+export const SEARCH_REQUESTED = 'search.requested';
+export const SEARCH_RESPONDED = 'search.responded';
