@@ -1,21 +1,14 @@
 import PubSub from "pubsub-js";
 import { SEARCH_REQUESTED, SEARCH_RESPONDED } from "../message-topics";
 
+import { acmeSlingshotProducts, acmeSlingshotWinningAds } from "../acme-slingshot-data";
+
+
 function View() {
     function simulateSearch() {
         PubSub.publish(SEARCH_RESPONDED, {
-            searchResults: [
-                { title: 'Wooden Slingshot', price: 21.99, description: '' },
-                { title: 'Plastic Slingshot', price: 34.99, description: '' },
-                { title: 'Iron Slingshot', price: 74.99, description: '' },
-                { title: 'Steel Slingshot', price: 99.99, description: '' },
-                { title: 'Titanium Slingshot', price: 349.99, description: '' },
-                { title: 'Adamantium Slingshot', price: 449.99, description: '' },
-            ],
-            winningAds: [
-                { title: 'Titanium Slingshot', price: 349.99, description: '' },
-                { title: 'Golden Slingshot', price: 299.99, description: '' },
-            ]
+            searchResults: acmeSlingshotProducts,
+            winningAds: acmeSlingshotWinningAds
         });
     }
 
