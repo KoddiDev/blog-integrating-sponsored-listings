@@ -6,24 +6,27 @@ class ConsolidatedFastSearchResults extends BaseSearchResults {
         super();
     }
 
-    renderResults() {
+    renderResults(data) {
         const fragment = document.createDocumentFragment();
         
         const list = document.createElement('ol');
         fragment.appendChild(list);
 
-        list.appendChild(this.buildWinningAdItem());
-        list.appendChild(this.buildResultItem());
-        list.appendChild(this.buildResultItem());
-        list.appendChild(this.buildResultItem());
-        list.appendChild(this.buildResultItem());
-        list.appendChild(this.buildResultItem());
-        list.appendChild(this.buildWinningAdItem());
-        list.appendChild(this.buildResultItem());
-        list.appendChild(this.buildResultItem());
-        list.appendChild(this.buildResultItem());
-        list.appendChild(this.buildResultItem());
-        list.appendChild(this.buildResultItem());
+        const { searchResults, winningAds } = data;
+        
+        list.appendChild(this.buildWinningAdItem(winningAds[0]));
+
+        for (let i = 0; i < Math.min(5, searchResults.length); i++) {
+            const searchResult = searchResults[i];
+            list.appendChild(this.buildResultItem(searchResult));
+        }
+        
+        list.appendChild(this.buildWinningAdItem(winningAds[1]));
+
+        for (let i = 5; i < searchResults.length; i++) {
+            const searchResult = searchResults[i];
+            list.appendChild(this.buildResultItem(searchResult));
+        }
 
         this.replaceChildren(fragment);
     }

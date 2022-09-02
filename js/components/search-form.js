@@ -19,8 +19,8 @@ class SearchForm extends HTMLElement {
                         <label for="minPrice">Min Price: $20.00
                             <input type="range" min="1" max="500" value="20" id="minPrice" readonly disabled>
                         </label>
-                        <label for="maxPrice">Max Price: $350.00
-                            <input type="range" min="1" max="500" value="350" id="maxPrice" readonly disabled>
+                        <label for="maxPrice">Max Price: $450.00
+                            <input type="range" min="1" max="500" value="450" id="maxPrice" readonly disabled>
                         </label>
                     </div>
                     

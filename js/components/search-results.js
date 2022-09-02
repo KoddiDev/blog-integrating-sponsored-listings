@@ -14,9 +14,9 @@ export default class BaseSearchResults extends HTMLElement {
 
         this.searchRequestedToken = PubSub.subscribe(SEARCH_REQUESTED, () => renderBusy(this));
         
-        this.searchRespondedToken = PubSub.subscribe(SEARCH_RESPONDED, () => {
+        this.searchRespondedToken = PubSub.subscribe(SEARCH_RESPONDED, (topic, data) => {
             clearBusy(this);
-            this.renderResults();
+            this.renderResults(data);
         });
     }
 
@@ -32,15 +32,15 @@ export default class BaseSearchResults extends HTMLElement {
         return item;
     }
 
-    buildResultItem() {
+    buildResultItem(searchResult) {
         const item = document.createElement('li');
-        item.innerHTML = '[ result item ]';
+        item.innerHTML = `${searchResult.title} for ${searchResult.price}`;
         return item;
     }
 
-    buildWinningAdItem() {
+    buildWinningAdItem(winningAd) {
         const item = document.createElement('li');
-        item.innerHTML = '[ winning ad ]';
+        item.innerHTML = `SPONSORED :: ${winningAd.title} for ${winningAd.price}`;
         return item;
     }
 
