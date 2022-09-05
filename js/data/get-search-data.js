@@ -19,7 +19,7 @@ export async function getSearchProducts(searchParameters, delayInMilliseconds = 
         await delay(delayInMilliseconds);
     }
 
-    return acmeSlingshotProducts;
+    return [...acmeSlingshotProducts];
 }
 
 export async function getSearchWinningAds(searchParameters, delayInMilliseconds = 0) {
@@ -27,5 +27,5 @@ export async function getSearchWinningAds(searchParameters, delayInMilliseconds 
         await delay(delayInMilliseconds);
     }
 
-    return acmeSlingshotWinningAds;
+    return [...acmeSlingshotWinningAds];
 }
