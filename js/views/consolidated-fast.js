@@ -6,7 +6,7 @@ import { getConsolidatedSearchData } from '../data/get-search-data.js';
 
 function View() {
     async function simulateSearch(searchParameters) {
-        const searchData = await getConsolidatedSearchData(searchParameters);
+        const searchData = await getConsolidatedSearchData(searchParameters, 400);
         PubSub.publish(SEARCH_RESPONDED, searchData);
     }
 
@@ -22,7 +22,7 @@ function View() {
                 <p>
                     In this scenario, submitting the search form below will <strong>simulate</strong> a single, 
                     consolidated call to the server.
-                    The response will be fast enough for our UX requirements, 
+                    The response will be <strong>fast</strong> enough for our UX requirements, 
                     so we will see search results and winning ads come back together.
                 </p>
                 
