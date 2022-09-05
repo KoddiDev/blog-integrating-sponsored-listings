@@ -34,7 +34,14 @@ export default class BaseSearchResults extends HTMLElement {
 
     buildResultItem(searchResult) {
         const item = document.createElement('li');
-        item.innerHTML = `${searchResult.title} for ${searchResult.price}`;
+        item.innerHTML = `
+            <section>
+                <h3>${searchResult.title}</h3>
+                <star-rating value=${searchResult.rating} title="${searchResult.rating} out of 5"></star-rating>
+                <div class="price">${searchResult.price}</div>
+                <p>${searchResult.summary}</p>
+            </section>
+        `;
         return item;
     }
 
