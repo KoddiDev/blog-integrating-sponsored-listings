@@ -11,6 +11,7 @@ import renderNode from './lib/renderNode.js';
 import homeView from './views/home.js';
 import consolidatedView from './views/consolidated.js';
 import consolidatedFastView from './views/consolidated-fast.js';
+import consolidatedSlowView from './views/consolidated-slow.js';
 
 
 let currentView;
@@ -18,7 +19,8 @@ let currentView;
 const routes = {
     '/': homeView,
     '/consolidated': consolidatedView,
-    '/consolidated/fast-results': consolidatedFastView
+    '/consolidated/fast-results': consolidatedFastView,
+    '/consolidated/slow-results': consolidatedSlowView
 };
 
 function renderView(view) {

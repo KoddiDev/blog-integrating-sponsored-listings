@@ -14,7 +14,8 @@ class AppNav extends HTMLElement {
             { 
                 title: 'Consolidated Calls', href: '/consolidated',
                 menuItems: [
-                    { title: 'Fast Results', href: '/consolidated/fast-results' }
+                    { title: 'Fast Results', href: '/consolidated/fast-results' },
+                    { title: 'Slow Results', href: '/consolidated/slow-results' }
                 ]
             },
             { 
