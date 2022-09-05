@@ -8,7 +8,19 @@ class SearchForm extends HTMLElement {
         this.render();
     }
 
+    connectedCallback() {
+        if (!this.isConnected) return;
+        this.render();
+
+        this.addEventListener('submit', event => {
+            event.preventDefault();
+            PubSub.publish(SEARCH_REQUESTED);
+        });
+    }
+
     render() {
+        if (this._isRendered) return;
+
         this.innerHTML = `
             <section>
                 <h3>Search the Acme Store</h3>
@@ -29,10 +41,7 @@ class SearchForm extends HTMLElement {
             </section>
         `;
 
-        this.addEventListener('submit', event => {
-            event.preventDefault();
-            PubSub.publish(SEARCH_REQUESTED);
-        });
+        this._isRendered = true;
     }
 }
 

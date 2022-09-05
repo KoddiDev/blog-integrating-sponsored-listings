@@ -24,11 +24,11 @@ class AppNav extends HTMLElement {
         ];
         
         this.menuItems = menuItems;
-        this.render();
     }
 
     connectedCallback() {
         if (!this.isConnected) return;
+        this.render();
         this.routeSubToken = PubSub.subscribe(ROUTE, () => this.handleRoute());
     }
 
@@ -38,10 +38,14 @@ class AppNav extends HTMLElement {
 
     
     render() {
+        if (this._isRendered) return;
+
         const nav = document.createElement('nav');
         const menuItemList = this.buildMenuItemList(this.menuItems);
         nav.appendChild(menuItemList);
         this.appendChild(nav);
+
+        this._isRendered = true;
     }
 
 
