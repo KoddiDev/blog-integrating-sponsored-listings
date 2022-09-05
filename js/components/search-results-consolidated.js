@@ -15,7 +15,7 @@ class ConsolidatedSearchResults extends BaseSearchResults {
         list.className = 'search-results';
         fragment.appendChild(list);
 
-        const firstWinningAd = winningAds.pop();
+        const firstWinningAd = winningAds.shift();
         if (firstWinningAd) {
             list.appendChild(this.buildWinningAdItem(firstWinningAd));
         }
@@ -25,7 +25,7 @@ class ConsolidatedSearchResults extends BaseSearchResults {
             list.appendChild(this.buildResultItem(searchResult));
         }
         
-        const secondWinningAd = winningAds.pop();
+        const secondWinningAd = winningAds.shift();
         if (secondWinningAd) {
             list.appendChild(this.buildWinningAdItem(secondWinningAd));
         }
