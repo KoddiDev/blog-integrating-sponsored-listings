@@ -5,9 +5,11 @@ class StarRating extends HTMLElement {
     }
 
     render() {
+        const value = this.getAttribute('value');
+
         this.innerHTML = `
             <div class="rating">
-                <progress value="3.3" max="5">3.3 of 5.0</progress>
+                <progress value="${value}" max="5">3.3 of 5.0</progress>
                 <svg><use href="#fiveStars" /></svg>
             </div>
         `;
