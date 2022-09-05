@@ -2,7 +2,7 @@ const woodenSlingshot = { title: 'Wooden Slingshot', price: 21.99, rating: 3.2, 
 const plasticSlingshot = { title: 'Plastic Slingshot', price: 34.99, rating: 3.3, summary: 'Sling Stuff™ with our durable slingshot!' };
 const ironSlingshot = { title: 'Iron Slingshot', price: 74.99, rating: 2.8, summary: 'Less breaking! Sling Stuff™' };
 const steelSlingshot = { title: 'Steel Slingshot', price: 99.99, rating: 4.2, summary: 'Reinforced for improved launching. Sling Stuff™' };
-const goldenSlingshot = { title: 'Golden Sling', price: 299.99, rating: 3.5, summary: 'Hang our golden sling in your library to show off to guests!' };
+const goldenSling = { title: 'Golden Sling', price: 299.99, rating: 3.5, summary: 'Hang our golden sling in your library to show off to guests!' };
 const coyoteSizedSlingshot = { title: 'Coyote-sized Slingshot', price: 319.99, rating: 2.1, summary: 'Fling yourself over large distances now! Intended for Coyotes only.' };
 const titaniumSlingshot = { title: 'Titanium Slingshot', price: 349.99, rating: 4.6, summary: 'Really dense for extreme use. Sling Stuff™' };
 const adamantiumSlingshot = { title: 'Adamantium Slingshot', price: 449.99, rating: 4.5, summary: 'Sling Stuff™ It\'s unbreakable!' };
@@ -28,5 +28,5 @@ export const acmeSlingshotProducts = [
 export const acmeSlingshotWinningAds = [
     coyoteSizedSlingshot,
     twoYearSlignshotWarranty,
-    goldenSlingshot,
+    goldenSling,
 ];
