@@ -1,15 +1,13 @@
 import PubSub from "pubsub-js";
 import { SEARCH_REQUESTED, SEARCH_RESPONDED } from "../message-topics";
 
-import { acmeSlingshotProducts, acmeSlingshotWinningAds } from "../acme-slingshot-data";
+import { getConsolidatedSearchData } from '../data/get-search-data.js';
 
 
 function View() {
-    function simulateSearch() {
-        PubSub.publish(SEARCH_RESPONDED, {
-            searchResults: acmeSlingshotProducts,
-            winningAds: acmeSlingshotWinningAds
-        });
+    async function simulateSearch(searchParameters) {
+        const searchData = await getConsolidatedSearchData(searchParameters);
+        PubSub.publish(SEARCH_RESPONDED, searchData);
     }
 
     return {
@@ -36,7 +34,7 @@ function View() {
         },
 
         onSetup: function () {
-            this.searchRequestedToken = PubSub.subscribe(SEARCH_REQUESTED, () => simulateSearch());
+            this.searchRequestedToken = PubSub.subscribe(SEARCH_REQUESTED, (topic, data) => simulateSearch(data));
         },
 
         onTeardown: function () {
