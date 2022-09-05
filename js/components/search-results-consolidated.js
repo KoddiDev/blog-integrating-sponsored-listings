@@ -35,6 +35,11 @@ class ConsolidatedSearchResults extends BaseSearchResults {
             list.appendChild(this.buildResultItem(searchResult));
         }
 
+        const thirdWinningAd = winningAds.shift();
+        if (thirdWinningAd) {
+            list.appendChild(this.buildWinningAdItem(thirdWinningAd));
+        }
+
         this.replaceChildren(fragment);
     }
 }
