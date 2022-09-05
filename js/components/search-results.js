@@ -40,7 +40,8 @@ export default class BaseSearchResults extends HTMLElement {
 
         if (isSponsored) {
             const sponsored = document.createElement('div');
-            sponsored.textContent = 'Sponsored';
+            sponsored.className = 'sponsored';
+            sponsored.textContent = 'Sponsored 🛈';
             sponsored.title = 'This ad is being shown to you based on the product\'s relevance to your search.';
             section.appendChild(sponsored);
         }
@@ -55,7 +56,7 @@ export default class BaseSearchResults extends HTMLElement {
 
         const price = document.createElement('div');
         price.className = 'price';
-        price.textContent = `${result.price}`;
+        price.textContent = `$${result.price.toFixed(2)}`;
         section.appendChild(price);
 
         const summary = document.createElement('p');
