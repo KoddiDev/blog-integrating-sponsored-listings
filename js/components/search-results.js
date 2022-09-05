@@ -32,23 +32,45 @@ export default class BaseSearchResults extends HTMLElement {
         return item;
     }
 
-    buildResultItem(searchResult) {
+    buildResultItem(result, isSponsored) {
         const item = document.createElement('li');
-        item.innerHTML = `
-            <section>
-                <h3>${searchResult.title}</h3>
-                <star-rating value=${searchResult.rating} title="${searchResult.rating} out of 5"></star-rating>
-                <div class="price">${searchResult.price}</div>
-                <p>${searchResult.summary}</p>
-            </section>
-        `;
+        
+        const section = document.createElement('section');
+        item.appendChild(section);
+
+        if (isSponsored) {
+            const sponsored = document.createElement('div');
+            sponsored.textContent = 'Sponsored';
+            sponsored.title = 'This ad is being shown to you based on the product\'s relevance to your search.';
+            section.appendChild(sponsored);
+        }
+
+        const heading = document.createElement('h3');
+        heading.textContent = result.title;
+        section.appendChild(heading);
+
+        const rating = document.createElement('star-rating');
+        rating.value = result.rating;
+        section.appendChild(rating);
+
+        const price = document.createElement('div');
+        price.className = 'price';
+        price.textContent = `${result.price}`;
+        section.appendChild(price);
+
+        const summary = document.createElement('p');
+        summary.innerHTML = result.summary;
+        section.appendChild(summary);
+
         return item;
     }
 
+    buildSearchResultItem(searchResult) {
+        return this.buildResultItem(searchResult, false);
+    }
+
     buildWinningAdItem(winningAd) {
-        const item = document.createElement('li');
-        item.innerHTML = `SPONSORED :: ${winningAd.title} for ${winningAd.price}`;
-        return item;
+        return this.buildResultItem(winningAd, true);
     }
 
     renderResults() {
