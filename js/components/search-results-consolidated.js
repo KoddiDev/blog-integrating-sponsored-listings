@@ -7,22 +7,28 @@ class ConsolidatedSearchResults extends BaseSearchResults {
     }
 
     renderResults(data) {
+        const { searchResults, winningAds } = data;
+        
         const fragment = document.createDocumentFragment();
         
         const list = document.createElement('ol');
         list.className = 'search-results';
         fragment.appendChild(list);
 
-        const { searchResults, winningAds } = data;
-        
-        list.appendChild(this.buildWinningAdItem(winningAds[0]));
+        const firstWinningAd = winningAds.pop();
+        if (firstWinningAd) {
+            list.appendChild(this.buildWinningAdItem(firstWinningAd));
+        }
 
         for (let i = 0; i < Math.min(5, searchResults.length); i++) {
             const searchResult = searchResults[i];
             list.appendChild(this.buildResultItem(searchResult));
         }
         
-        list.appendChild(this.buildWinningAdItem(winningAds[1]));
+        const secondWinningAd = winningAds.pop();
+        if (secondWinningAd) {
+            list.appendChild(this.buildWinningAdItem(secondWinningAd));
+        }
 
         for (let i = 5; i < searchResults.length; i++) {
             const searchResult = searchResults[i];
