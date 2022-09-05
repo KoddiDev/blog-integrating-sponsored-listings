@@ -10,6 +10,7 @@ class ConsolidatedSearchResults extends BaseSearchResults {
         const fragment = document.createDocumentFragment();
         
         const list = document.createElement('ol');
+        list.className = 'search-results';
         fragment.appendChild(list);
 
         const { searchResults, winningAds } = data;
