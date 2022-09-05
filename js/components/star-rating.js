@@ -20,8 +20,8 @@ class StarRating extends HTMLElement {
         if (this._isRendered) return;
 
         this.innerHTML = `
-            <div class="rating">
-                <progress value="${this.value}" max="5">3.3 of 5.0</progress>
+            <div class="rating" title="${this.value} out of 5.0">
+                <progress value="${this.value}" max="5">${this.value} out of 5.0</progress>
                 <svg><use href="#fiveStars" /></svg>
             </div>
         `;
