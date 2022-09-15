@@ -6,11 +6,11 @@ import { getSearchProducts, getSearchWinningAds } from '../data/get-search-data.
 
 function View() {
     async function simulateSearch(searchParameters) {
-        const products = await getSearchProducts(searchParameters, 400);
-        PubSub.publish(SEARCH_RESULTS_RESPONDED, products);
+        getSearchProducts(searchParameters, 400)
+            .then(products => PubSub.publish(SEARCH_RESULTS_RESPONDED, products));
 
-        const winningAds = await getSearchWinningAds(searchParameters, 800);
-        PubSub.publish(SEARCH_ADS_RESPONDED, winningAds);
+        getSearchWinningAds(searchParameters, 800)
+            .then(winningAds => PubSub.publish(SEARCH_ADS_RESPONDED, winningAds));
     }
 
     return {
