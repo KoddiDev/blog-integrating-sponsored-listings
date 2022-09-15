@@ -1,8 +1,6 @@
 import PubSub from 'pubsub-js';
 import { ROUTE } from '../message-topics.js';
 
-import route from '../router.js';
-
 
 class AppNav extends HTMLElement {
     constructor() {
@@ -20,7 +18,10 @@ class AppNav extends HTMLElement {
             },
             { 
                 title: 'Separated Calls', href: '/separated',
-                menuItems: []
+                menuItems: [
+                    { title: 'Content Shift', href: '/separated/content-shift' },
+                    { title: 'Placeholders', href: '/separated/placeholders' }
+                ]
             }
         ];
         

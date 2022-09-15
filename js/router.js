@@ -9,9 +9,13 @@ import renderHTMLString from './lib/renderHTMLString';
 import renderNode from './lib/renderNode.js';
 
 import homeView from './views/home.js';
+
 import consolidatedView from './views/consolidated.js';
 import consolidatedFastView from './views/consolidated-fast.js';
 import consolidatedSlowView from './views/consolidated-slow.js';
+
+import separatedView from './views/separated.js';
+import separatedContentShiftView from './views/separated-content-shift.js';
 
 
 let currentView;
@@ -20,7 +24,9 @@ const routes = {
     '/': homeView,
     '/consolidated': consolidatedView,
     '/consolidated/fast-results': consolidatedFastView,
-    '/consolidated/slow-results': consolidatedSlowView
+    '/consolidated/slow-results': consolidatedSlowView,
+    '/separated': separatedView,
+    '/separated/content-shift': separatedContentShiftView
 };
 
 function renderView(view) {
