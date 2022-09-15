@@ -1,5 +1,5 @@
 import PubSub from "pubsub-js";
-import { SEARCH_REQUESTED, SEARCH_RESPONDED } from "../message-topics";
+import { SEARCH_REQUESTED, SEARCH_RESULTS_RESPONDED, SEARCH_ADS_RESPONDED } from "../message-topics";
 
 import { getSearchProducts, getSearchWinningAds } from '../data/get-search-data.js';
 
@@ -7,8 +7,10 @@ import { getSearchProducts, getSearchWinningAds } from '../data/get-search-data.
 function View() {
     async function simulateSearch(searchParameters) {
         const products = await getSearchProducts(searchParameters, 400);
+        PubSub.publish(SEARCH_RESULTS_RESPONDED, products);
+
         const winningAds = await getSearchWinningAds(searchParameters, 800);
-        //PubSub.publish(SEARCH_RESPONDED, searchData);
+        PubSub.publish(SEARCH_ADS_RESPONDED, winningAds);
     }
 
     return {
