@@ -1,6 +1,7 @@
 import './components/nav.js';
 import './components/search-form.js';
 import './components/search-results-consolidated.js';
+import './components/search-results-separated-static.js';
 import './components/star-rating.js';
 
 import route from './router.js';

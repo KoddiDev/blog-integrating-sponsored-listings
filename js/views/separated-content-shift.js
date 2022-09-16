@@ -9,7 +9,7 @@ function View() {
         getSearchProducts(searchParameters, 400)
             .then(products => PubSub.publish(SEARCH_RESULTS_RESPONDED, products));
 
-        getSearchWinningAds(searchParameters, 800)
+        getSearchWinningAds(searchParameters, 1800)
             .then(winningAds => PubSub.publish(SEARCH_ADS_RESPONDED, winningAds));
     }
 
@@ -34,7 +34,7 @@ function View() {
                 <hr>
                 
                 <search-form></search-form>
-                <separated-search-results></separated-search-results>
+                <separated-static-search-results></separated-static-search-results>
             `;
         },
 
