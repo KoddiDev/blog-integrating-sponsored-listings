@@ -28,7 +28,7 @@ function View() {
                     The winning ads response will be simulated to return a bit <strong>later</strong> 
                     than the search results. 
                     The winning ads will be inserted into the page after the search results are rendered. 
-                    This will result in content shift; a poor user experience.
+                    This will result in <strong>content shift</strong>; a poor user experience.
                 </p>
                 
                 <hr>
