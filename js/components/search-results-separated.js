@@ -7,9 +7,9 @@ import { clearBusy, renderBusy } from "../lib/busy.js";
 
 
 const PlaceholderResult = {
-    title: '&hellip;', 
+    title: 'Loading&hellip;', 
     price: 0.00, 
-    rating: 2.5, 
+    rating: 0.0, 
     summary: '&hellip;'
 };
 

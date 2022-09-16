@@ -2,6 +2,8 @@ body {
     --primary: hsl(196, 100%, 44%);
     --primary-hover: hsl(196, 100%, 34%);
     --primary-focus: rgba(0, 165, 223, 0.125)
+    --muted-border-color: hsl(205deg, 10%, 20%);
+    --card-border-color: var(--muted-border-color);
 }
 
 @media (min-width: 992px) {
@@ -79,6 +81,7 @@ app-nav a[aria-current] {
     padding: var(--block-spacing-horizontal) var(--block-spacing-horizontal);
 }
 .search-results li section {
+    --background-color: var(--card-background-color);
     border: 0.2rem solid var(--card-border-color);
 }
 .search-results li.sponsored section,
@@ -97,4 +100,11 @@ app-nav a[aria-current] {
 }
 .search-results div.sponsored {
     font-size: calc(var(--font-size) * 0.8);
+}
+.search-results li.placeholder h3,
+.search-results li.placeholder .price,
+.search-results li.placeholder p {
+    --color: var(--card-border-color);
+    color: var(--color);
+    background: var(--color);
 }
