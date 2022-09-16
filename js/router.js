@@ -16,6 +16,7 @@ import consolidatedSlowView from './views/consolidated-slow.js';
 
 import separatedView from './views/separated.js';
 import separatedContentShiftView from './views/separated-content-shift.js';
+import separatedPlaceholdersView from './views/separated-placeholders.js';
 
 
 let currentView;
@@ -26,7 +27,8 @@ const routes = {
     '/consolidated/fast-results': consolidatedFastView,
     '/consolidated/slow-results': consolidatedSlowView,
     '/separated': separatedView,
-    '/separated/content-shift': separatedContentShiftView
+    '/separated/content-shift': separatedContentShiftView,
+    '/separated/placeholders': separatedPlaceholdersView
 };
 
 function renderView(view) {
