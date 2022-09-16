@@ -28,6 +28,9 @@ export default class BaseSearchResults extends HTMLElement {
 
     buildResultItem(result, isSponsored) {
         const item = document.createElement('li');
+        if (isSponsored) {
+            item.className = 'sponsored';
+        }
         
         const section = document.createElement('section');
         item.appendChild(section);
