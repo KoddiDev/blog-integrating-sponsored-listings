@@ -6,6 +6,13 @@ import { SEARCH_REQUESTED, SEARCH_RESULTS_RESPONDED, SEARCH_ADS_RESPONDED } from
 import { clearBusy, renderBusy } from "../lib/busy.js";
 
 
+const PlaceholderResult = {
+    title: '&hellip;', 
+    price: 0.00, 
+    rating: 2.5, 
+    summary: '&hellip;'
+};
+
 export default class BaseSeparatedSearchResults extends BaseSearchResults {
     constructor() {
         super();
@@ -35,8 +42,8 @@ export default class BaseSeparatedSearchResults extends BaseSearchResults {
 
 
     buildPlaceholderItem() {
-        const item = document.createElement('li');
-        item.innerHTML = '[ placeholder ]';
+        const item = this.buildResultItem(PlaceholderResult, true);
+        item.className = 'placeholder';
         return item;
     }
 

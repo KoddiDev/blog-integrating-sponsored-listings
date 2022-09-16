@@ -6,7 +6,17 @@ class SeparatedStaticSearchResults extends BaseSeparatedSearchResults {
         super();
     }
 
+    get usePlaceholders() {
+        return this.hasAttribute('usePlaceholders');
+    }
+
+    set usePlaceholders(value) {
+        this.setAttribute('usePlaceholders', '');
+    }
+
     renderResults(searchResults) {
+        const ExpectedAdCount = 3;
+
         const fragment = document.createDocumentFragment();
         
         const list = document.createElement('ol');
@@ -18,6 +28,11 @@ class SeparatedStaticSearchResults extends BaseSeparatedSearchResults {
             list.appendChild(item);
         }
 
+        if (this.usePlaceholders) {
+            const placeholders = Array(ExpectedAdCount).fill({ isPlaceholder: true });
+            this.insertListItemsAtAdPositions(placeholders, searchResults.length, list);
+        }
+
         this.replaceChildren(fragment);
     }
 
@@ -27,28 +42,53 @@ class SeparatedStaticSearchResults extends BaseSeparatedSearchResults {
         const list = this.querySelector('ol');
         const searchResultCount = list.childElementCount;
 
+        if (this.usePlaceholders) {
+            this.replacePlaceholderListItems(winningAds, searchResultCount, list);
+        } else {
+            this.insertListItemsAtAdPositions(winningAds, searchResultCount, list);
+        }
+    }
+
+    insertListItemsAtAdPositions(winningAds, searchResultCount, list) {
+        const ads = this.determinePlacementForAds(winningAds, searchResultCount);
+        for (let index = 0; index < ads.length; index++) {
+            const ad = ads[index];
+            const resultItem = list.childNodes[ad.placementIndex + index];
+
+            const item = ad.isPlaceholder 
+                ? this.buildPlaceholderItem()
+                : this.buildWinningAdItem(ad);
+            list.insertBefore(item, resultItem);
+        }
+    }
+
+    replacePlaceholderListItems(winningAds, searchResultCount, list) {
         const ads = this.determinePlacementForAds(winningAds, searchResultCount);
         for (let index = 0; index < ads.length; index++) {
             const ad = ads[index];
             const resultItem = list.childNodes[ad.placementIndex + index];
 
             const item = this.buildWinningAdItem(ad);
-            list.insertBefore(item, resultItem);
+            if (resultItem.matches('.placeholder')) {
+                list.replaceChild(item, resultItem);
+            } else {
+                list.insertBefore(item, resultItem);
+            }
         }
     }
 
-    determinePlacementForAds(winningAds, searchResultCount) {
+    determinePlacementForAds(ads, searchResultCount) {
         const AdIndexOffset = 5;
 
         let placementIndex = 0;
-        const ads = winningAds.map(winningAd => {
-            const ad = { ...winningAd, placementIndex: placementIndex };
+        const placedAds = ads.map(ad => {
+            const placedAd = { ...ad, placementIndex: placementIndex };
             placementIndex = Math.min(placementIndex + AdIndexOffset, searchResultCount);
 
-            return ad;
+            return placedAd;
         });
 
-        return ads;
+        return placedAds;
     }
 }
 
