@@ -73,10 +73,17 @@ app-nav a[aria-current] {
 .search-results section {
     --typography-spacing-vertical: 0.75rem;
     border-radius: var(--border-radius);
-    background: var(--card-background-color);
+    background: var(--background-color);
     box-shadow: var(--card-box-shadow);
     margin: var(--block-spacing-horizontal) 0;
     padding: var(--block-spacing-horizontal) var(--block-spacing-horizontal);
+}
+.search-results li section {
+    border: 0.2rem solid var(--card-border-color);
+}
+.search-results li.sponsored section,
+.search-results li.placeholder section {
+    border: 0.2rem solid var(--primary);
 }
 .search-results h3 {
     --font-size: 1.25rem;
