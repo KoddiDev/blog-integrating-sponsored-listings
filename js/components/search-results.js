@@ -44,7 +44,7 @@ export default class BaseSearchResults extends HTMLElement {
         }
 
         const heading = document.createElement('h3');
-        heading.textContent = result.title;
+        heading.innerHTML = result.title;
         section.appendChild(heading);
 
         const rating = document.createElement('star-rating');
