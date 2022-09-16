@@ -26,12 +26,6 @@ export default class BaseSearchResults extends HTMLElement {
     }
 
 
-    buildPlaceholderItem() {
-        const item = document.createElement('li');
-        item.innerHTML = '[ placeholder ]';
-        return item;
-    }
-
     buildResultItem(result, isSponsored) {
         const item = document.createElement('li');
         
