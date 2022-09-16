@@ -43,8 +43,8 @@ app-nav a[aria-current] {
 
 .rating {
     position: relative;
-    width: 4rem;
-    height: 0.8rem;
+    width: 5rem;
+    height: 1rem;
 }
 
 .rating progress {
