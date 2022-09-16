@@ -34,11 +34,6 @@ const routes = {
 function renderView(view) {
     if (view === undefined) return;
 
-    // Is the view a constructor?
-    if (isFunction(view)) {
-        view = view();
-    }
-
     runTeardownForView(currentView);
     currentView = view;
 
@@ -75,6 +70,11 @@ function renderViewContents(target, view) {
 function route() {
     let view = routes[location.pathname];
     if (view) {
+        // Is the view a constructor?
+        if (isFunction(view)) {
+            view = view();
+        }
+
         document.title = `Demo: ${view.title}`;
         renderView(view);
         PubSub.publish(ROUTE);
