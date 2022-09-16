@@ -7,37 +7,28 @@ class ConsolidatedSearchResults extends BaseSearchResults {
     }
 
     renderResults(data) {
-        const { searchResults, winningAds } = data;
-        
+        const { searchResults, winningAds } = data; 
+        const ads = winningAds.map(ad => ({ ...ad, isAd: true }));
+
+        const products = [
+            ads.shift(),
+            ...searchResults.slice(0, 5),
+            ads.shift(),
+            ...searchResults.slice(5),
+            ads.shift()
+        ];
+
         const fragment = document.createDocumentFragment();
         
         const list = document.createElement('ol');
         list.className = 'search-results';
         fragment.appendChild(list);
 
-        const firstWinningAd = winningAds.shift();
-        if (firstWinningAd) {
-            list.appendChild(this.buildWinningAdItem(firstWinningAd));
-        }
-
-        for (let i = 0; i < Math.min(5, searchResults.length); i++) {
-            const searchResult = searchResults[i];
-            list.appendChild(this.buildResultItem(searchResult));
-        }
-        
-        const secondWinningAd = winningAds.shift();
-        if (secondWinningAd) {
-            list.appendChild(this.buildWinningAdItem(secondWinningAd));
-        }
-
-        for (let i = 5; i < searchResults.length; i++) {
-            const searchResult = searchResults[i];
-            list.appendChild(this.buildResultItem(searchResult));
-        }
-
-        const thirdWinningAd = winningAds.shift();
-        if (thirdWinningAd) {
-            list.appendChild(this.buildWinningAdItem(thirdWinningAd));
+        for (const product of products) {
+            const item = product.isAd 
+                ? this.buildWinningAdItem(product) 
+                : this.buildSearchResultItem(product);
+            list.appendChild(item);
         }
 
         this.replaceChildren(fragment);
