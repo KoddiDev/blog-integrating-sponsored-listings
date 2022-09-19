@@ -41,6 +41,8 @@ class ConsolidatedSearchResults extends BaseSearchResults {
             placementIndex += AdIndexOffset;
         }
 
+        products.push(...searchResults.slice(placementIndex));
+
         return products;
     }
 }
