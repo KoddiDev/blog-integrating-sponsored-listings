@@ -5,7 +5,6 @@ import { SEARCH_REQUESTED } from '../message-topics.js';
 class SearchForm extends HTMLElement {
     constructor() {
         super();
-        this.render();
     }
 
     connectedCallback() {
