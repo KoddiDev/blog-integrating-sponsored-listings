@@ -10,7 +10,8 @@ import route from './router.js';
 window.addEventListener('popstate', route);
 window.addEventListener('DOMContentLoaded', route);
 
-document.addEventListener('click', (event) => {
+document.addEventListener('click', event => {
+    // Watch for internal links only (anything without //).
     if (event.target.matches('a:not([href*="//"])')) {
         event.preventDefault();
         history.pushState('', '', event.target.href);

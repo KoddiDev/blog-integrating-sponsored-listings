@@ -14,6 +14,8 @@ class SearchForm extends HTMLElement {
 
         this.addEventListener('submit', event => {
             event.preventDefault();
+
+            // NOTE: Someday, we may need to send the search parameters (form input values).
             PubSub.publish(SEARCH_REQUESTED);
         });
     }

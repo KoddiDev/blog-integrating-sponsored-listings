@@ -29,6 +29,8 @@ class ConsolidatedSearchResults extends BaseSearchResults {
         const AdIndexOffset = 5;
 
         const products = [];
+
+        // Weave any ads among the search results.
         let placementIndex = 0;
         for (let index = 0; index < winningAds.length; index++) {
             const ad = winningAds[index];
@@ -41,6 +43,7 @@ class ConsolidatedSearchResults extends BaseSearchResults {
             placementIndex += AdIndexOffset;
         }
 
+        // Push the remaining search results.
         products.push(...searchResults.slice(placementIndex));
 
         return products;
