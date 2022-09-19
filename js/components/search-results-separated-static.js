@@ -44,6 +44,12 @@ class SeparatedStaticSearchResults extends BaseSeparatedSearchResults {
 
         if (this.usePlaceholders) {
             this.replacePlaceholderListItems(winningAds, searchResultCount, list);
+            
+            // Remove any remaining placeholders (we may have expected more ads than we actually received).
+            const remainingPlaceholders = this.querySelectorAll('li.placeholder');
+            for (const placeholder of remainingPlaceholders) {
+                placeholder.remove();
+            }
         } else {
             this.insertListItemsAtAdPositions(winningAds, searchResultCount, list);
         }
