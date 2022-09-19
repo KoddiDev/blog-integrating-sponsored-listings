@@ -26,6 +26,19 @@ body > header > hgroup {
     margin-bottom: 0;
 }
 
+a.github-repo {
+    margin-left: 0.35rem;
+}
+a.github-repo svg {
+    fill: var(--contrast);
+    height: 1.25rem;
+    width: 1.25rem;
+    vertical-align: text-bottom;
+}
+a.github-repo svg:hover {
+    fill: var(--contrast-hover);
+}
+
 app-nav nav ul ul:first-of-type {
     margin-left: var(--nav-element-spacing-horizontal);
 }
