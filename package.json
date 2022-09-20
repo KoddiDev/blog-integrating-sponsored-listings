@@ -1,7 +1,6 @@
 {
   "name": "blog-integrating-sponsored-listings",
-  "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Code and demo to accompany the blog article, Integrating Sponsored Listings in Your Search Results.",
   "scripts": {
     "dev": "vite",
@@ -21,7 +20,7 @@
   ],
   "author": "Koddi",
   "license": "ISC",
-  "homepage": "https://github.com/KoddiDev/blog-integrating-sponsored-listings#readme",
+  "homepage": "https://koddidev.github.io/blog-integrating-sponsored-listings/",
   "dependencies": {
     "pubsub-js": "^1.9.4",
     "url-join": "^5.0.0",
