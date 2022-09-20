@@ -51,6 +51,12 @@ app-nav a[aria-current] {
         grid-column-gap: 2rem;
         grid-template-columns: 25% auto;
     }
+
+    app-nav {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+    }
 }
 
 
