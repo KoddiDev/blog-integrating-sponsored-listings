@@ -96,9 +96,6 @@ class AppNav extends HTMLElement {
                 link.removeAttribute('aria-current');
             }
         }
-
-        const matchingLink = this.querySelector(`a[href='${location.pathname}']`);
-        matchingLink?.setAttribute('aria-current', 'page');
     }
 }
 
