@@ -1,3 +1,6 @@
+import url from '../lib/url.js';
+
+
 function render() {
     return `
         <h2>Separated Calls</h2>
@@ -11,7 +14,7 @@ function render() {
         </p>
         <p>
             The first example simulates 
-            <a href="/separated/content-shift">content shift</a>.
+            <a href="${url('/separated/content-shift')}">content shift</a>.
         </p>
     `;
 }

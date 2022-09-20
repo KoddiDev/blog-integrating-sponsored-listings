@@ -1,6 +1,8 @@
 import PubSub from 'pubsub-js';
 import { ROUTE } from '../message-topics.js';
 
+import url from '../lib/url.js';
+
 
 class AppNav extends HTMLElement {
     constructor() {
@@ -79,7 +81,7 @@ class AppNav extends HTMLElement {
         const item = document.createElement('li');
         
         const link = document.createElement('a');
-        link.href = menuItem.href;
+        link.href = url(menuItem.href);
         link.className = 'secondary';
         link.text = menuItem.title;
         item.appendChild(link);

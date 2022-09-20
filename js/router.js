@@ -7,6 +7,7 @@ import isNode from './lib/isNode.js';
 import { renderBusy } from './lib/busy.js';
 import renderHTMLString from './lib/renderHTMLString';
 import renderNode from './lib/renderNode.js';
+import url from './lib/url.js';
 
 import homeView from './views/home.js';
 
@@ -21,7 +22,7 @@ import separatedPlaceholdersView from './views/separated-placeholders.js';
 
 let currentView;
 
-const routes = {
+const definedRoutes = {
     '/': homeView,
     '/consolidated': consolidatedView,
     '/consolidated/fast-results': consolidatedFastView,
@@ -30,6 +31,12 @@ const routes = {
     '/separated/content-shift': separatedContentShiftView,
     '/separated/placeholders': separatedPlaceholdersView
 };
+
+const routes = {};
+for (const route in definedRoutes) {
+    routes[url(route)] = definedRoutes[route];
+}
+
 
 function renderView(view) {
     if (view === undefined) return;
@@ -79,7 +86,7 @@ function route() {
         renderView(view);
         PubSub.publish(ROUTE);
     } else {
-        history.replaceState('', '', '/');
+        history.replaceState('', '', url('/'));
         route();
     }
 }

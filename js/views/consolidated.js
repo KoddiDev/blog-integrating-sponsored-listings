@@ -1,3 +1,6 @@
+import url from '../lib/url.js';
+
+
 function render() {
     return `
         <h2>Consolidated Calls</h2>
@@ -8,7 +11,8 @@ function render() {
             When both actions complete, their results are combined and returned to the client.
         </p>
         <p>
-            Let's take a look at a simulation for <a href="/consolidated/fast-results">fast results</a>.
+            Let's take a look at a simulation for 
+            <a href="${url('/consolidated/fast-results')}">fast results</a>.
         </p>
     `;
 }
