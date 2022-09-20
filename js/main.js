@@ -14,7 +14,7 @@ document.addEventListener('click', event => {
     // Watch for internal links only (anything without //).
     if (event.target.matches('a:not([href*="//"])')) {
         event.preventDefault();
-        history.pushState('', '', event.target.href);
+        history.pushState('', '', event.target.pathname);
         route();
     }
 });
