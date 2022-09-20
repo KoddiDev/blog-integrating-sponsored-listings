@@ -24,7 +24,7 @@ function View() {
                     consolidated call to the server.
                     The winning ads response will be simulated as <strong>slow</strong>, 
                     therefore reaching the limit of our UX requirements. 
-                    As a results, we will choose to <strong>not</strong> return any winning ads.
+                    As a result, we will choose to <strong>not</strong> return any winning ads.
                 </p>
                 
                 <hr>
