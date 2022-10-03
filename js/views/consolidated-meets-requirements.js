@@ -11,18 +11,18 @@ function View() {
     }
 
     return {
-        title: 'Consolidated Calls - Fast Results',
+        title: 'Consolidated Calls - Meets UX Requirements',
 
         render: function () {
             return `
                 <hgroup>
                     <h2>Consolidated Calls</h2>
-                    <h3>Fast Results</h3>
+                    <h3>Meets UX Requirements</h3>
                 </hgroup>
                 <p>
                     In this scenario, submitting the search form below will <strong>simulate</strong> a single, 
                     consolidated call to the server.
-                    The response will be <strong>fast</strong> enough for our UX requirements, 
+                    The response will <strong>meet our UX requirements</strong> with regard to speed, 
                     so we will see search results and winning ads come back together.
                 </p>
                 

@@ -12,8 +12,8 @@ import url from './lib/url.js';
 import homeView from './views/home.js';
 
 import consolidatedView from './views/consolidated.js';
-import consolidatedFastView from './views/consolidated-fast.js';
-import consolidatedSlowView from './views/consolidated-slow.js';
+import consolidatedMeetsRequirementsView from './views/consolidated-meets-requirements.js';
+import consolidatedUnexpectedLatencyView from './views/consolidated-unexpected-latency.js';
 
 import separatedView from './views/separated.js';
 import separatedContentShiftView from './views/separated-content-shift.js';
@@ -25,8 +25,8 @@ let currentView;
 const definedRoutes = {
     '/': homeView,
     '/consolidated': consolidatedView,
-    '/consolidated/fast-results': consolidatedFastView,
-    '/consolidated/slow-results': consolidatedSlowView,
+    '/consolidated/meets-requirements': consolidatedMeetsRequirementsView,
+    '/consolidated/unexpected-latency': consolidatedUnexpectedLatencyView,
     '/separated': separatedView,
     '/separated/content-shift': separatedContentShiftView,
     '/separated/placeholders': separatedPlaceholdersView

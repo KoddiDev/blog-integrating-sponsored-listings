@@ -11,8 +11,8 @@ function render() {
             When both actions complete, their results are combined and returned to the client.
         </p>
         <p>
-            Let's take a look at a simulation for 
-            <a href="${url('/consolidated/fast-results')}">fast results</a>.
+            Let's take a look at a simulation that 
+            <a href="${url('/consolidated/meets-requirements')}">meets UX speed requirements</a>.
         </p>
     `;
 }
