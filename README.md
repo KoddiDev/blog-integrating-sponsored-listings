@@ -1,5 +1,5 @@
 # Integrating Sponsored Listings
-Code and demo to accompany the blog article, [Integrating Sponsored Listings in Your Search Results]().
+Code and demo to accompany the blog article, [Integrating Sponsored Listings in Your Search Results](https://koddi.com/integrating-sponsored-listings-in-search-results).
 
 ## Roadmap
 There are a few more tactics we'd like to demonstrate depending on various other scenarios you may encounter.
