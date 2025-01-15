@@ -9,3 +9,6 @@ There are a few more tactics we'd like to demonstrate depending on various other
 1. Demo of paged results when user scrolls before winning ads return.
 1. Demo of infinite scrolling when user scrolls before winning ads return.
 1. &hellip;
+
+## Development
+Ensure Node and NPM are installed. Install NPM packages with `npm install`. Run a deve build with `npm run dev`.
