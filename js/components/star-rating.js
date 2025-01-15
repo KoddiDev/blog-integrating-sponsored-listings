@@ -1,13 +1,20 @@
+import { convertToNumberWithDefault } from "../lib/convertToSafeNumber";
+
+
 class StarRating extends HTMLElement {
     constructor() {
         super();
     }
 
     get value() {
-        return this.getAttribute('value');
+        return convertToNumberWithDefault(this.getAttribute('value'), 0);
     }
 
     set value(value) {
+        if (!Number.isFinite(value)) {
+            value = 0.0;
+        }
+
         this.setAttribute('value', value);
     }
 
