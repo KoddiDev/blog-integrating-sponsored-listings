@@ -44,15 +44,20 @@ class SeparatedStaticSearchResults extends BaseSeparatedSearchResults {
 
         if (this.usePlaceholders) {
             this.replacePlaceholderListItems(winningAds, searchResultCount, list);
-            
+
             // Remove any remaining placeholders (we may have expected more ads than we actually received).
             const remainingPlaceholders = this.querySelectorAll('li.placeholder');
             for (const placeholder of remainingPlaceholders) {
-                placeholder.remove();
+                this.fadeOutAndRemove(placeholder);
             }
         } else {
             this.insertListItemsAtAdPositions(winningAds, searchResultCount, list);
         }
+    }
+
+    fadeOutAndRemove(element) {
+        element.classList.add('fade-out');
+        element.addEventListener('animationend', () => element.remove(), { once: true });
     }
 
     insertListItemsAtAdPositions(winningAds, searchResultCount, list) {

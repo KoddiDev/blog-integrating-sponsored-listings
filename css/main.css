@@ -127,3 +127,18 @@ app-nav a[aria-current] {
     color: var(--color);
     background: var(--color);
 }
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+}
+
+.search-results li.placeholder.fade-out {
+    animation: fade-out 0.3s ease-out forwards;
+}
