@@ -18,6 +18,7 @@ import consolidatedUnexpectedLatencyView from './views/consolidated-unexpected-l
 import separatedView from './views/separated.js';
 import separatedContentShiftView from './views/separated-content-shift.js';
 import separatedPlaceholdersView from './views/separated-placeholders.js';
+import separatedAdTimeoutView from './views/separated-ad-timeout.js';
 
 
 let currentView;
@@ -29,7 +30,8 @@ const definedRoutes = {
     '/consolidated/unexpected-latency': consolidatedUnexpectedLatencyView,
     '/separated': separatedView,
     '/separated/content-shift': separatedContentShiftView,
-    '/separated/placeholders': separatedPlaceholdersView
+    '/separated/placeholders': separatedPlaceholdersView,
+    '/separated/ad-timeout': separatedAdTimeoutView
 };
 
 const routes = {};

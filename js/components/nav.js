@@ -18,11 +18,12 @@ class AppNav extends HTMLElement {
                     { title: 'Unexpected Latency', href: '/consolidated/unexpected-latency' }
                 ]
             },
-            { 
+            {
                 title: 'Separated Calls', href: '/separated',
                 menuItems: [
                     { title: 'Content Shift', href: '/separated/content-shift' },
-                    { title: 'Placeholders', href: '/separated/placeholders' }
+                    { title: 'Placeholders', href: '/separated/placeholders' },
+                    { title: 'Ad Timeout', href: '/separated/ad-timeout' }
                 ]
             }
         ];
